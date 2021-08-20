@@ -1,0 +1,46 @@
+<%- include("./head") %>
+
+<form method="POST" action="/feed" style="margin-left: 200px">
+  <div class="mb-3">
+    <br />
+    <label>Name: </label>
+    <input name="name" type="text" class="form-control" style="width: 50%" />
+    <% if(error && error.name ){ %>
+    <h4 style="color: red"><%= error.name.properties.message %></h4>
+    <% } %>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Message: </label>
+    <textarea
+      name="message"
+      type="text"
+      class="form-control"
+      style="width: 50%"
+    ></textarea>
+    <% if(error && error.message){ %>
+    <h4 style="color: red"><%= error.message.properties.message %></h4>
+    <% } %>
+  </div>
+  <button type="submit" class="btn btn-secondary">Add a post</button>
+</form>
+
+<% results.forEach(result => { %>
+<div
+  class="card"
+  style="
+    width: 18rem;
+    margin: 40px;
+    margin-left: 200px;
+    display: inline-flex;
+    background: yellow;
+  "
+>
+  <div class="card-body">
+    <h5 class="card-title"><%= result.name %></h5>
+    <p class="card-subtitle mb-2 text-muted"><%= result.message %></p>
+    <br />
+    <h8 class="card-subtitle mb-2 text-muted">Time: <%= result.createdAt %></h8>
+  </div>
+  <a id="seeMore" href="/feed/<%= result.id %>">See More</a><br />
+</div>
+<% }) %>

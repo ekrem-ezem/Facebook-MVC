@@ -1,0 +1,21 @@
+<%- include("./head") %>
+<br />
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title"><%= result.name %></h5>
+    <p class="card-subtitle mb-2 text-muted"><%= result.message %></p>
+    <p class="card-subtitle mb-2 text-muted"><%= result.createdAt %></p>
+    <a
+      href="/delete/feed/<%= result.id %>"
+      class="card-link btn btn-danger"
+      id="showfeedbtnd"
+      >Delete</a
+    >
+    <a
+      href="/feed/edit/<%= result.id %>"
+      class="card-link btn btn-warning"
+      id="showfeedbtne"
+      >Edit</a
+    >
+  </div>
+</div>

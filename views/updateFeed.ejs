@@ -1,0 +1,23 @@
+<%- include("./head") %>
+
+<form method="POST" action="/feed/edit/<%= result.id %>" style="margin: 150px">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      name="name"
+      value="<%= result.name %>"
+      type="text"
+      class="form-control"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Message</label>
+    <input
+      name="message"
+      value="<%= result.message %>"
+      type="text"
+      class="form-control"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
